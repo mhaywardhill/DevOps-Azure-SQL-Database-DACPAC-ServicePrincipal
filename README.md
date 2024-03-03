@@ -16,4 +16,4 @@ GO
 ```
 * Create DACPAC:
 
-![App diagram](/screenshots/Extract Data-tier Application.png)  
+![Create DACPAC](/screenshots/ExtractData-tierApplication.png)
