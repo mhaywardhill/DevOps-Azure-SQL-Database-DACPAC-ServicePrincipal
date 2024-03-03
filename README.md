@@ -14,3 +14,6 @@ GO
 ALTER ROLE db_owner ADD MEMBER [<Service Principal name>];
 GO
 ```
+* Create DACPAC:
+
+![App diagram](/screenshots/Extract Data-tier Application.png)  
