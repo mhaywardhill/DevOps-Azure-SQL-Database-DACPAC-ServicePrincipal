@@ -1,0 +1,6 @@
+trigger:
+- none
+
+variables:
+- name: vmImageName
+  value: 'windows-2022' 
