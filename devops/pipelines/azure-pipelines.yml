@@ -4,3 +4,35 @@ trigger:
 variables:
 - name: vmImageName
   value: 'windows-2022' 
+
+stages:
+- stage: Build
+  displayName: Build
+  jobs:
+  - job: dacpac
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: AzurePowerShell@5
+      displayName: 'Generate SQLAccessToken'
+      inputs:
+        azureSubscription: '$(AzureSubscription)'
+        azurePowerShellVersion: 'LatestVersion'
+        ScriptType: InlineScript
+        Inline: |
+          $TenantID = '$(TenantId)'
+          $ClientID = '$(ClientId)'
+          $ClientSecret = '$(ClientSecret)'
+          $resourceAppIdURI = 'https://database.windows.net/'
+          
+          $tokenResponse = Invoke-RestMethod -Method Post -UseBasicParsing -Uri "https://login.windows.net/$($TenantID)/oauth2/token" -Body @{
+            resource=$resourceAppIdURI
+            client_id=$clientID
+            grant_type='client_credentials'
+            client_secret=$clientSct
+          } -ContentType 'application/x-www-form-urlencoded'
+            
+          if ($tokenResponse) {
+            Write-debug "Access token type is $($tokenResponse.token_type), expires $($tokenResponse.expires_on)"
+            $Token = $tokenResponse.access_token
+          }
