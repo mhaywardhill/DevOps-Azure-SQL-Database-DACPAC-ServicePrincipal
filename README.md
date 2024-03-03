@@ -14,6 +14,13 @@ GO
 ALTER ROLE db_owner ADD MEMBER [<Service Principal name>];
 GO
 ```
-* Create DACPAC:
+* Create DACPAC and upload to repo.
 
 ![Create DACPAC](/screenshots/ExtractData-tierApplication.png)
+
+
+## Create pipeline
+
+* Create new project in Azure DevOps.
+
+* Create pipeline then connect to existing repo in GitHub and select YAML file.
