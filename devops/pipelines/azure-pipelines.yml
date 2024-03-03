@@ -16,7 +16,7 @@ stages:
     - task: AzurePowerShell@5
       displayName: 'Generate SQLAccessToken'
       inputs:
-        azureSubscription: '$(AzureSubscription)'
+        azureSubscription: 'AzureSubscriptionConnector'
         azurePowerShellVersion: 'LatestVersion'
         ScriptType: InlineScript
         Inline: |
