@@ -43,7 +43,7 @@ stages:
       inputs:
         azureSubscription: 'AzureSubscriptionConnector'
         AuthenticationType: 'connectionString'
-        ConnectionString: 'Server=$($SQLDatabase);Initial Catalog=AdventureWorksLT;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30'
+        ConnectionString: 'Server=$(SQLDatabase);Initial Catalog=AdventureWorksLT;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30'
         deployType: 'DacpacTask'
         DeploymentAction: 'Publish'
         DacpacFile: '$(System.DefaultWorkingDirectory)/dacpac/AdventureWorksLT.dacpac'
