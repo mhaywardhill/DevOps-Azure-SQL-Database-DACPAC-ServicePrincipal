@@ -40,3 +40,7 @@ GO
 * Create the variables in the pipeline:
 
 ![Pipeline variables](/screenshots/pipeline_variables.png)
+
+## Run the pipeline
+
+![run the pipeline](/screenshots/dacpacdeployment.png)
