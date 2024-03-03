@@ -27,9 +27,9 @@ stages:
           
           $tokenResponse = Invoke-RestMethod -Method Post -UseBasicParsing -Uri "https://login.windows.net/$($TenantID)/oauth2/token" -Body @{
             resource=$resourceAppIdURI
-            client_id=$clientID
+            client_id=$ClientID
             grant_type='client_credentials'
-            client_secret=$clientSct
+            client_secret=$ClientSecret
           } -ContentType 'application/x-www-form-urlencoded'
             
           if ($tokenResponse) {
